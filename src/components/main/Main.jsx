@@ -23,7 +23,6 @@ const Main = () => {
     };
   }, []);
 
-  console.log(homeReeldata);
 
   return (
     <>
