@@ -4,6 +4,7 @@ import { instance } from "../../api/axios";
 import "./ProductView.scss";
 import { FiChevronRight } from "react-icons/fi";
 import {HiOutlineShoppingCart} from "react-icons/hi"
+import Scroll from "../../components/scroll/Scroll";
 const ProductView = () => {
   const [selectedVariant, setSelectedVariant] = useState(0);
   const [itemCounter, setItemCounter] = useState(1);
@@ -40,6 +41,7 @@ const ProductView = () => {
   return (
     <>
       <div className="container">
+        <Scroll/>
         <div className="product__block">
           <div>
             <div className="productView__img">
@@ -53,10 +55,10 @@ const ProductView = () => {
             <div className="productView__images">
               {productViewData?.productImages.map((productImageThumb, ind) => (
                 <img
-                  style={
+                  className={
                     ind === activeImageNumber
-                      ? { border: "2px solid #4361ee" }
-                      : { border: "2px solid transparent" }
+                      ? "borderBlock" 
+                      : "borderNone" 
                   }
                   width="100%"
                   height="100%"
@@ -76,7 +78,7 @@ const ProductView = () => {
             </div>
             <div className="productView__wrap">
               <p>Омборда: </p>
-              <span>10</span>
+              <span>{productViewData?.productSizesAndQuantity[selectedVariant].quantity}</span>
               <p>Ўлчам:</p>
               <select
                 onChange={(e) => {

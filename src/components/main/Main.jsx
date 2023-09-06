@@ -5,6 +5,7 @@ import ProductCarousel from "../product-carousel/ProductCarousel";
 import Service from "../service/Service";
 import "./Main.scss";
 import Sidebar from "../sidebar/Sidebar";
+import Scroll from "../scroll/Scroll";
 const Main = () => {
   const [homeReeldata, setHomeReeldata] = useState([]);
 
@@ -23,11 +24,11 @@ const Main = () => {
     };
   }, []);
 
-
   return (
     <>
       <div className="container">
-        <Sidebar/>
+        <Scroll />
+        <Sidebar />
         {homeReeldata.length > 0 ? (
           <div className="home__product-carousel">
             {homeReeldata.slice(0, 4).map((category) => (

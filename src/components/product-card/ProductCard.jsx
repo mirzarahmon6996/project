@@ -2,6 +2,7 @@ import React from "react";
 import { DefaultButton } from "../../utils/Utils";
 import "./ProductCard.scss";
 import { Link } from "react-router-dom";
+import {LiaHandPointerSolid} from "react-icons/lia"
 import { FiChevronRight } from "react-icons/fi";
 
 const ProductCard = ({ productData }) => {
@@ -10,7 +11,7 @@ const ProductCard = ({ productData }) => {
       <Link className="product__img" to={`/productView/${productData._id}`}>
         <img src={productData.productImages[0]} alt="" />
       </Link>
-      <h3>{productData.productName_uz}</h3>
+      <h3>{productData.productName_uz.length > 20 ? productData.productName_uz.slice(0 , 20)  + "..." : productData.productName_uz } </h3>
       <div className="product__list">
         <p>{productData.productMainCategory_uz}</p>
         <FiChevronRight />
@@ -25,7 +26,11 @@ const ProductCard = ({ productData }) => {
           } CУМ `}
         </p>
       </div>
-      <DefaultButton text="Саватга қўшиш" />
+      {productData.productSizesAndQuantity.length > 1 ? (
+        <Link  to={`/productView/${productData._id}`} > <button  className="default-btn"> <LiaHandPointerSolid/> Танлаш</button></Link>
+      ) : (
+        <DefaultButton text="Саватга қўшиш" />
+      )}
     </div>
   );
 };
