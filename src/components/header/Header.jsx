@@ -5,6 +5,7 @@ import rusLogo from "../../assets/img/russian.svg";
 import { FiPhone } from "react-icons/fi";
 import { TfiEmail } from "react-icons/tfi";
 import Navbar from "../navbar/Navbar";
+import engLogo from "../../assets/img/england.png";
 const Header = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -35,6 +36,16 @@ const Header = () => {
               }}
               className="header__logo"
               src={rusLogo}
+              alt=""
+            />{" "}
+            <img
+              onClick={() => handleImageClick("engLogo")}
+              style={{
+                borderBottom:
+                  selectedImage === "engLogo" ? "3px solid #4361EE" : "none",
+              }}
+              className="header__logo"
+              src={engLogo}
               alt=""
             />
             <div>

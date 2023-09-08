@@ -6,7 +6,7 @@ import Header from "./components/header/Header";
 import Partner from "./routes/partner/Partner";
 import ProductView from "./routes/productView/ProductView";
 import Footer from "./components/footer/Footer";
-
+import MainCaterogy from "./components/mainCaterogy/MainCaterogy";
 function App() {
   return (
     <>
@@ -16,9 +16,10 @@ function App() {
         <Route path="/partner" element={<Partner />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/productView/:id" element={<ProductView/>} />
+        <Route path="/maincategory/:categoryname" element={<MainCaterogy/>} />
+        <Route path="/productView/:id" element={<ProductView />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }

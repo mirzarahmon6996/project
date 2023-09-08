@@ -12,6 +12,8 @@ header {
   height: 40px;
   margin-left: 20px ;
   cursor: pointer;
+  object-fit: contain;
+  top: 0;
 }
 a {
   display: flex;

@@ -9,7 +9,7 @@ const ProductCard = ({ productData }) => {
   return (
     <div className="product-card">
       <Link className="product__img" to={`/productView/${productData._id}`}>
-        <img src={productData.productImages[0]} alt="" />
+        <img width="100%" height="100%" src={productData.productImages[0]} alt="" />
       </Link>
       <h3>{productData.productName_uz.length > 20 ? productData.productName_uz.slice(0 , 20)  + "..." : productData.productName_uz } </h3>
       <div className="product__list">

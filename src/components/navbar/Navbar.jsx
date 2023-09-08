@@ -1,4 +1,4 @@
-import noresult from "../../assets/img/noresults.png"
+import noresult from "../../assets/img/noresults.png";
 import { useState, useEffect } from "react";
 import "./Navbar.scss";
 import navbarlogo from "../../assets/img/header__logo.svg";
@@ -22,8 +22,8 @@ const Navbar = () => {
         setSearchResults([]);
       });
   }, [inputSearch]);
-  function clean(){
-    setInputSearch("")
+  function clean() {
+    setInputSearch("");
   }
 
   return (
@@ -33,12 +33,7 @@ const Navbar = () => {
           <div className="nav__block">
             <div className="nav__wrap">
               <Link to="/">
-                <img
-                  width="180"
-                  height="73"
-                  src={navbarlogo}
-                  alt="Logo"
-                />
+                <img width="180" height="73" src={navbarlogo} alt="Logo" />
               </Link>
               <form
                 onSubmit={(e) => {
@@ -63,17 +58,23 @@ const Navbar = () => {
                       key={searchedItem._id}
                       to={`/productView/${searchedItem._id}`}
                     >
-                      <div className="search__results-item">
-                        <img
-                          src={searchedItem.productImages[0]}
-                          alt=""
-                        />
-                        <h4>{searchedItem.productName_ru}</h4>
-                        <strong>
-                          {`${searchedItem.productSizesAndQuantity[0].price} CУМ `}
-                          {searchedItem.productSizesAndQuantity.length > 1 &&
-                            `- ${searchedItem.productSizesAndQuantity.reverse()[0].price}`}
-                        </strong>
+                      <div>
+                      <div className="search__box">
+                            <span>Қидириш натижалари:</span>
+                            <p className="results__lenght">#</p>
+                          </div>
+                        <div className="search__results-item">
+                          <img src={searchedItem.productImages[0]} alt="" />
+                          <h4>{searchedItem.productName_ru}</h4>
+                          <strong>
+                            {`${searchedItem.productSizesAndQuantity[0].price} CУМ `}
+                            {searchedItem.productSizesAndQuantity.length > 1 &&
+                              `- ${
+                                searchedItem.productSizesAndQuantity.reverse()[0]
+                                  .price
+                              }`}
+                          </strong>
+                        </div>
                       </div>
                     </Link>
                   ))}
