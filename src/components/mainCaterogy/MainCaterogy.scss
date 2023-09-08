@@ -12,7 +12,7 @@ h2 {
 }
 .category__box {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: repeat(4 ,1fr);
   flex-wrap: wrap;
   gap: 30px;
 

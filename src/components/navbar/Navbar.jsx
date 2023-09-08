@@ -50,42 +50,58 @@ const Navbar = () => {
                 <button className="nav__btn" type="submit">
                   <FiSearch className="search" />
                 </button>
-              </form>
+              </form>{" "}
               {searchResults.length > 0 || inputSearch.length !== 0 ? (
-                <div className="search__results" onClick={clean}>
-                  {searchResults.map((searchedItem) => (
-                    <Link
-                      key={searchedItem._id}
-                      to={`/productView/${searchedItem._id}`}
-                    >
+                <>
+                  <div className="search__results">
+                    <div className="search__box">
                       <div>
-                      <div className="search__box">
-                            <span>Қидириш натижалари:</span>
-                            <p className="results__lenght">#</p>
-                          </div>
-                        <div className="search__results-item">
-                          <img src={searchedItem.productImages[0]} alt="" />
-                          <h4>{searchedItem.productName_ru}</h4>
-                          <strong>
-                            {`${searchedItem.productSizesAndQuantity[0].price} CУМ `}
-                            {searchedItem.productSizesAndQuantity.length > 1 &&
-                              `- ${
-                                searchedItem.productSizesAndQuantity.reverse()[0]
-                                  .price
-                              }`}
-                          </strong>
-                        </div>
+                        <span>Қидириш натижалари:</span>
+                        <button className="results__lenght">
+                          #{inputSearch}
+                        </button>
                       </div>
-                    </Link>
-                  ))}
-                  {searchResults.length === 0 && inputSearch.length !== 0 && (
-                    <img
-                      className="nosearch-result-img"
-                      src={noresult}
-                      alt=""
-                    />
-                  )}
-                </div>
+                      <div>
+                        <span id="search__total">
+                          {searchResults.length} Натижа
+                        </span>
+                        <strong className="result__clean" onClick={clean}>Бекор қилиш</strong>
+                      </div>
+                    </div>
+                    <div onClick={clean}>
+                      {searchResults.map((searchedItem) => (
+                        <Link
+                          key={searchedItem._id}
+                          to={`/productView/${searchedItem._id}`}
+                        >
+                          <div style={{ width: "100%" }}>
+                            <div className="search__results-item">
+                              <img src={searchedItem.productImages[0]} alt="" />
+                              <h4>{searchedItem.productName_ru}</h4>
+                              <strong>
+                                {`${searchedItem.productSizesAndQuantity[0].price} CУМ `}
+                                {searchedItem.productSizesAndQuantity.length >
+                                  1 &&
+                                  `- ${
+                                    searchedItem.productSizesAndQuantity.reverse()[0]
+                                      .price
+                                  }`}
+                              </strong>
+                            </div>
+                          </div>
+                        </Link>
+                      ))}
+                      {searchResults.length === 0 &&
+                        inputSearch.length !== 0 && (
+                          <img
+                            className="nosearch-result-img"
+                            src={noresult}
+                            alt=""
+                          />
+                        )}
+                    </div>
+                  </div>
+                </>
               ) : null}
             </div>
             <div className="nav__pages">

@@ -28,7 +28,6 @@ const Main = () => {
     <>
       <div className="container">
         <Scroll />
-        <Sidebar />
         {homeReeldata.length > 0 ? (
           <div className="home__product-carousel">
             {homeReeldata.slice(0, 4).map((category) => (

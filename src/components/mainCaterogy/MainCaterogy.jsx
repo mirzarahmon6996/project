@@ -22,12 +22,13 @@ const MainCategory = () => {
       isDataFetched = false;
     };
   }, [categoryname]);
-
+  console.log(categories);
+console.log(categoryname)
 
   return (
     <div className="container">
       <div className="category__wrapper">
-        {categories?.length > 0 ? (
+        {categories?.maincategory?.length > 0 ? (
           <>
             <h2>{categories?.maincategoryTranslate?.uz}</h2>
             <div className="category__box">
